@@ -9,14 +9,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
+    Button siguiente;
     public void Entrar(View view){
        // Button botonEntrar =(Button) findViewById(R.id.botonEntrar);
+
+
         String usuario = ((EditText) findViewById(R.id.usuario)).getText().toString();
         String contrasena = ((EditText) findViewById(R.id.contrasena)).getText().toString();
+
+
+
+
+        Intent entrar = new Intent(this,MosLIsta.class);
+        startActivity(entrar);
+
+/*
         if(usuario.equals("michael")&&contrasena.equals("sarmiento")){
 
-            Intent entrar = new Intent(this,usuario1.class);
-            startActivity(entrar);
+
         }
         else{
             //mostramos el mensaje erroneo
@@ -39,12 +49,26 @@ public class Main extends AppCompatActivity {
             Intent entrar = new Intent(this,usuario4.class);
             startActivity(entrar);
         }
-
+*/
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        siguiente= (Button)findViewById(R.id.Button_reg);
+        siguiente.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent siguiente=new Intent(Main.this, Reg_Usuar.class);
+                startActivity(siguiente);
+
+            }
+        });
+
+
+
+
     }
     @Override
     protected void onStart() {
